@@ -2,41 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Desa Randuagung Design System 
+Inspired by traditional Indonesian village aesthetics with modern web design
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base Colors */
+    --background: 45 20% 97%;
+    --foreground: 160 15% 15%;
 
+    /* Card System */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 160 15% 15%;
 
+    /* Popover */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 160 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Emerald Green (Village identity) */
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 160 60% 85%;
+    --primary-dark: 160 90% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Golden accent */
+    --secondary: 43 96% 56%;
+    --secondary-foreground: 160 15% 15%;
+    --secondary-light: 43 85% 85%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Village specific colors */
+    --village-green: 160 84% 39%;
+    --village-gold: 43 96% 56%;
+    --village-cream: 45 35% 92%;
+    --village-brown: 25 30% 35%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Muted tones */
+    --muted: 45 20% 95%;
+    --muted-foreground: 160 10% 45%;
 
+    /* Accent */
+    --accent: 160 60% 85%;
+    --accent-foreground: 160 15% 15%;
+
+    /* Status colors */
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Form elements */
+    --border: 160 20% 88%;
+    --input: 160 20% 95%;
+    --ring: 160 84% 39%;
 
-    --radius: 0.5rem;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(160 84% 39%), hsl(160 90% 25%));
+    --gradient-golden: linear-gradient(135deg, hsl(43 96% 56%), hsl(43 80% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(43 96% 56%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(45 35% 98%), hsl(45 20% 95%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(160 84% 39% / 0.1);
+    --shadow-medium: 0 8px 30px hsl(160 84% 39% / 0.15);
+    --shadow-large: 0 20px 40px hsl(160 84% 39% / 0.2);
+    --shadow-golden: 0 8px 25px hsl(43 96% 56% / 0.3);
+
+    /* Borders */
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 16px;
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +96,50 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode for village website */
+    --background: 160 20% 8%;
+    --foreground: 45 35% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 160 25% 12%;
+    --card-foreground: 45 35% 92%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 160 25% 12%;
+    --popover-foreground: 45 35% 92%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 43 96% 56%;
+    --secondary-foreground: 160 20% 8%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 160 25% 15%;
+    --muted-foreground: 160 10% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 160 40% 20%;
+    --accent-foreground: 45 35% 92%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --border: 160 25% 20%;
+    --input: 160 25% 15%;
+    --ring: 160 84% 39%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(160 84% 39%), hsl(160 90% 25%));
+    --gradient-golden: linear-gradient(135deg, hsl(43 96% 56%), hsl(43 80% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(43 96% 56%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(160 25% 12%), hsl(160 20% 8%));
+
+    /* Sidebar */
+    --sidebar-background: 160 25% 10%;
+    --sidebar-foreground: 45 35% 92%;
+    --sidebar-primary: 160 84% 39%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 160 25% 15%;
+    --sidebar-accent-foreground: 45 35% 92%;
+    --sidebar-border: 160 25% 20%;
+    --sidebar-ring: 160 84% 39%;
   }
 }
 
@@ -100,6 +149,75 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-['Inter',_sans-serif];
+    line-height: 1.6;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-dark));
+  }
+}
+
+@layer components {
+  /* Village-specific patterns */
+  .pattern-islamic {
+    background-image: url("data:image/svg+xml,%3csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23059669' fill-opacity='0.05'%3e%3cpath d='M20 20L0 0v20h20zM20 20L40 0v20H20zM20 20L0 40v-20h20zM20 20L40 40v-20H20z'/%3e%3c/g%3e%3c/svg%3e");
+  }
+
+  .pattern-batik {
+    background-image: url("data:image/svg+xml,%3csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23d97706' fill-opacity='0.03'%3e%3ccircle cx='30' cy='30' r='8'/%3e%3ccircle cx='0' cy='0' r='8'/%3e%3ccircle cx='60' cy='0' r='8'/%3e%3ccircle cx='0' cy='60' r='8'/%3e%3ccircle cx='60' cy='60' r='8'/%3e%3c/g%3e%3c/svg%3e");
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Village card hover effects */
+  .village-card {
+    transition: var(--transition-smooth);
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-soft);
+  }
+
+  .village-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+  }
+
+  /* Ornamental dividers */
+  .ornament-divider {
+    background: linear-gradient(90deg, transparent, hsl(var(--village-gold)), transparent);
+    height: 2px;
+    position: relative;
+  }
+
+  .ornament-divider::before {
+    content: "❋";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: hsl(var(--background));
+    color: hsl(var(--village-gold));
+    padding: 0 12px;
+    font-size: 12px;
   }
 }

@@ -29,7 +29,7 @@ const Header = () => {
             />
             <div className="hidden md:block">
               <h1 className="font-bold text-lg text-foreground">Desa Randuagung</h1>
-              <p className="text-sm text-muted-foreground">Kabupaten Kutai Kartanegara</p>
+              <p className="text-sm text-muted-foreground">Kecamatan Singosari, Malang</p>
             </div>
           </Link>
 

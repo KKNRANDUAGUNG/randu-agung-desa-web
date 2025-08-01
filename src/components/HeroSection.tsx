@@ -30,7 +30,7 @@ const HeroSection = () => {
                 Desa Randuagung
               </h1>
               <p className="text-xl md:text-2xl text-white/90">
-                Kabupaten Kutai Kartanegara
+                Kecamatan Singosari, Malang
               </p>
             </div>
           </div>
@@ -47,11 +47,11 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-4 mb-6">
               <div className="flex items-center gap-2 text-white/80">
                 <MapPin className="h-5 w-5" />
-                <span>Kalimantan Timur</span>
+                <span>Jawa Timur</span>
               </div>
               <div className="flex items-center gap-2 text-white/80">
                 <Users className="h-5 w-5" />
-                <span>2,850 Jiwa</span>
+                <span>0 Jiwa</span>
               </div>
               <div className="flex items-center gap-2 text-white/80">
                 <Calendar className="h-5 w-5" />

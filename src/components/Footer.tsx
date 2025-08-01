@@ -18,7 +18,7 @@ const Footer = () => {
               />
               <div>
                 <h3 className="text-xl font-bold">Desa Randuagung</h3>
-                <p className="text-white/80">Kabupaten Kutai Kartanegara</p>
+                <p className="text-white/80">Kecamatan Singosari, Malang</p>
               </div>
             </div>
             <p className="text-white/70 mb-6 leading-relaxed">
@@ -46,8 +46,8 @@ const Footer = () => {
                 <MapPin className="h-5 w-5 mt-1 text-village-gold" />
                 <div>
                   <p className="text-white/90">Jl. Desa Randuagung No. 1</p>
-                  <p className="text-white/70">Kec. Tenggarong Seberang</p>
-                  <p className="text-white/70">Kab. Kutai Kartanegara, Kaltim</p>
+                  <p className="text-white/70">Kec. Singosari</p>
+                  <p className="text-white/70">Kab. Malang, Jawa Timur</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">

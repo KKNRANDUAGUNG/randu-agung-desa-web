@@ -8,7 +8,7 @@ const Infografis = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-16 bg-gradient-subtle">
@@ -19,112 +19,42 @@ const Infografis = () => {
                 Infografis Desa
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Data dan statistik Desa Randuagung dalam bentuk visual yang mudah dipahami
+                Data dan statistik Desa Randuagung dalam bentuk visual yang
+                mudah dipahami
               </p>
             </div>
           </div>
         </section>
 
-        {/* Demographics */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-foreground text-center mb-12">Demografi Penduduk</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              <Card className="village-card p-6">
-                <Users className="h-10 w-10 text-primary mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">0</h3>
-                <p className="text-muted-foreground">Total Penduduk</p>
-                <div className="mt-4">
-                  <div className="flex justify-between text-sm mb-2">
-                    <span>Laki-laki</span>
-                    <span>0</span>
-                  </div>
-                  <Progress value={0} className="mb-2" />
-                  <div className="flex justify-between text-sm">
-                    <span>Perempuan</span>
-                    <span>0</span>
-                  </div>
-                  <Progress value={0} />
-                </div>
-              </Card>
-
-              <Card className="village-card p-6">
-                <GraduationCap className="h-10 w-10 text-primary mb-4" />
-                <h3 className="text-lg font-bold text-foreground mb-4">Pendidikan</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between text-sm">
-                    <span>SD</span>
-                    <span>0%</span>
-                  </div>
-                  <Progress value={0} />
-                  <div className="flex justify-between text-sm">
-                    <span>SMP</span>
-                    <span>0%</span>
-                  </div>
-                  <Progress value={0} />
-                  <div className="flex justify-between text-sm">
-                    <span>SMA</span>
-                    <span>0%</span>
-                  </div>
-                  <Progress value={0} />
-                </div>
-              </Card>
-
-              <Card className="village-card p-6">
-                <Briefcase className="h-10 w-10 text-primary mb-4" />
-                <h3 className="text-lg font-bold text-foreground mb-4">Pekerjaan</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between text-sm">
-                    <span>Petani</span>
-                    <span>0%</span>
-                  </div>
-                  <Progress value={0} />
-                  <div className="flex justify-between text-sm">
-                    <span>Pedagang</span>
-                    <span>0%</span>
-                  </div>
-                  <Progress value={0} />
-                  <div className="flex justify-between text-sm">
-                    <span>PNS</span>
-                    <span>0%</span>
-                  </div>
-                  <Progress value={0} />
-                </div>
-              </Card>
-
-              <Card className="village-card p-6">
-                <Home className="h-10 w-10 text-primary mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">0</h3>
-                <p className="text-muted-foreground mb-4">Kepala Keluarga</p>
-                <div className="space-y-3">
-                  <div className="flex justify-between text-sm">
-                    <span>Ekonomi Atas</span>
-                    <span>0%</span>
-                  </div>
-                  <Progress value={0} />
-                  <div className="flex justify-between text-sm">
-                    <span>Ekonomi Menengah</span>
-                    <span>0%</span>
-                  </div>
-                  <Progress value={0} />
-                  <div className="flex justify-between text-sm">
-                    <span>Ekonomi Bawah</span>
-                    <span>0%</span>
-                  </div>
-                  <Progress value={0} />
-                </div>
-              </Card>
+        {/* Lokasi Desa (Google Maps) + Statistik */}
+        <section className="pt-16 pb-24">
+          <div className="container mx-auto px-4" >
+            <h2 className="text-3xl font-bold text-foreground text-center mb-8">
+              Lokasi Desa Randuagung
+            </h2>
+            <div className="overflow-hidden rounded-xl shadow-lg h-[60vh] mb-16">
+            <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32359.3619601092!2d112.64429452998438!3d-7.864849653679171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62b11a596f507%3A0xfec3750a9963bc87!2sRanduangung%2C%20Kec.%20Singosari%2C%20Kabupaten%20Malang%2C%20Jawa%20Timur!5e1!3m2!1sid!2sid!4v1752990048424!5m2!1sid!2sid"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
             </div>
 
-            {/* Additional Stats */}
+            {/* Statistik */}
+            <h2 className="text-3xl font-bold text-foreground text-center mb-8">
+              Statistik Desa
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="village-card p-8 text-center">
                 <h3 className="text-6xl font-bold text-primary mb-4">0</h3>
                 <p className="text-lg text-foreground font-semibold">Dusun</p>
                 <p className="text-muted-foreground">Wilayah Administrasi</p>
               </Card>
-              
+
               <Card className="village-card p-8 text-center">
                 <h3 className="text-6xl font-bold text-primary mb-4">0</h3>
                 <p className="text-lg text-foreground font-semibold">RT/RW</p>

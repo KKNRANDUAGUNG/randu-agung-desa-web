@@ -7,8 +7,8 @@ import Index from "./pages/Index";
 import Profil from "./pages/Profil";
 import Infografis from "./pages/Infografis";
 import Berita from "./pages/Berita";
-import Pelayanan from "./pages/Pelayanan";
-import Ppid from "./pages/Ppid";
+import Games from "./pages/Games";
+// import Ppid from "./pages/Ppid";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,8 +24,8 @@ const App = () => (
           <Route path="/profil" element={<Profil />} />
           <Route path="/infografis" element={<Infografis />} />
           <Route path="/berita" element={<Berita />} />
-          <Route path="/pelayanan" element={<Pelayanan />} />
-          <Route path="/ppid" element={<Ppid />} />
+          <Route path="/games" element={<Games />} />
+          {/* <Route path="/ppid" element={<Ppid />} /> */}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -2,7 +2,12 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Home, Info, BarChart3, Newspaper, Users, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Gamepad2 } from "lucide-react";
 import logoDesaImage from "@/assets/logo-desa.png";
+const navItems = [
+  { label: "Games", href: "/pelayanan", icon: Gamepad2 },
+];
+
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,8 +17,8 @@ const Header = () => {
     { label: "Profil Desa", href: "/profil", icon: Info },
     { label: "Infografis", href: "/infografis", icon: BarChart3 },
     { label: "Berita", href: "/berita", icon: Newspaper },
-    { label: "Pelayanan", href: "/pelayanan", icon: Users },
-    { label: "PPID", href: "/ppid", icon: FileText },
+    { label: "Games", href: "/games", icon: Gamepad2 },
+    // { label: "PPID", href: "/ppid", icon: FileText },
   ];
 
   return (

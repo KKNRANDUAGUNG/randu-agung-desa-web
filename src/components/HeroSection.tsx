@@ -1,13 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Users, Calendar } from "lucide-react";
 import heroVillageImage from "@/assets/hero-village.jpg";
 import logoDesaImage from "@/assets/logo-desa.png";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-[80vh] flex items-center overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroVillageImage})` }}
       >
@@ -20,9 +23,9 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-4xl">
           <div className="flex items-center gap-4 mb-6">
-            <img 
-              src={logoDesaImage} 
-              alt="Logo Desa Randuagung" 
+            <img
+              src={logoDesaImage}
+              alt="Logo Desa Randuagung"
               className="h-20 w-20 filter drop-shadow-lg"
             />
             <div className="text-white">
@@ -40,10 +43,10 @@ const HeroSection = () => {
               Selamat Datang di Website Resmi
             </h2>
             <p className="text-lg text-white/90 mb-6 leading-relaxed">
-              Portal informasi terdepan untuk pelayanan masyarakat, berita terkini, 
-              dan perkembangan pembangunan Desa Randuagung.
+              Portal informasi terdepan untuk pelayanan masyarakat, berita
+              terkini, dan perkembangan pembangunan Desa Randuagung.
             </p>
-            
+
             <div className="flex flex-wrap gap-4 mb-6">
               <div className="flex items-center gap-2 text-white/80">
                 <MapPin className="h-5 w-5" />
@@ -60,13 +63,27 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <Button variant="hero" size="lg" className="group">
-                Jelajahi Layanan
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-3 text-white font-semibold shadow-md hover:opacity-90 transition-all duration-200"
+                onClick={() => navigate("/profil")}
+              >
                 Profil Desa
-              </Button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="ml-2 h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -74,7 +91,7 @@ const HeroSection = () => {
 
       {/* Islamic Ornament */}
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent"></div>
-      
+
       {/* Floating ornaments */}
       <div className="absolute top-10 right-10 text-6xl text-village-gold opacity-20 animate-pulse">
         ❋

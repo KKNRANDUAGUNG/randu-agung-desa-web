@@ -1,4 +1,12 @@
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Facebook,
+  Instagram,
+  Youtube,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoDesaImage from "@/assets/logo-desa.png";
 
@@ -11,9 +19,9 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <img 
-                src={logoDesaImage} 
-                alt="Logo Desa Randuagung" 
+              <img
+                src={logoDesaImage}
+                alt="Logo Desa Randuagung"
                 className="h-12 w-12"
               />
               <div>
@@ -22,22 +30,50 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-white/70 mb-6 leading-relaxed">
-              Desa Randuagung berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat 
-              dan terus berinovasi dalam pembangunan desa yang berkelanjutan.
+              Desa Randuagung berkomitmen untuk memberikan pelayanan terbaik
+              kepada masyarakat dan terus berinovasi dalam pembangunan desa yang
+              berkelanjutan.
             </p>
             <div className="flex gap-3">
-              <Button size="icon" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <Button
+                size="icon"
+                variant="outline"
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+              >
                 <Facebook className="h-4 w-4" />
               </Button>
-              <Button size="icon" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <Button
+                size="icon"
+                variant="outline"
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+              >
                 <Instagram className="h-4 w-4" />
               </Button>
-              <Button size="icon" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <Button
+                size="icon"
+                variant="outline"
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+              >
                 <Youtube className="h-4 w-4" />
               </Button>
             </div>
           </div>
 
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6"></h4>
+            <div className="space-y-4">
+              {["", "", "", "", "", ""].map((link) => (
+                <a
+                  key={link}
+                  href="#"
+                  className="block text-white/70 hover:text-village-gold transition-colors duration-300"
+                >
+                  {link}
+                </a>
+              ))}
+            </div>
+          </div>
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-6">Kontak Kami</h4>
@@ -45,18 +81,18 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 text-village-gold" />
                 <div>
-                  <p className="text-white/90">Jl. Desa Randuagung No. 1</p>
+                  <p className="text-white/90">Jl. Desa Randuagung </p>
                   <p className="text-white/70">Kec. Singosari</p>
                   <p className="text-white/70">Kab. Malang, Jawa Timur</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-village-gold" />
-                <span className="text-white/90">(0541) 123-4567</span>
+                <span className="text-white/90">no telp</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-village-gold" />
-                <span className="text-white/90">info@randuagung.desa.id</span>
+                <span className="text-white/90">email@gmail.com</span>
               </div>
               <div className="flex items-start gap-3">
                 <Clock className="h-5 w-5 mt-1 text-village-gold" />
@@ -65,29 +101,6 @@ const Footer = () => {
                   <p className="text-white/70">Sabtu: 08.00 - 12.00</p>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Tautan Cepat</h4>
-            <div className="space-y-3">
-              {[
-                "Profil Desa",
-                "Struktur Organisasi", 
-                "Visi & Misi",
-                "Pelayanan Publik",
-                "Transparansi Dana Desa",
-                "Pengaduan Masyarakat"
-              ].map((link) => (
-                <a 
-                  key={link}
-                  href="#" 
-                  className="block text-white/70 hover:text-village-gold transition-colors duration-300"
-                >
-                  {link}
-                </a>
-              ))}
             </div>
           </div>
         </div>
@@ -101,13 +114,22 @@ const Footer = () => {
               © 2025 Desa Randuagung. Seluruh hak cipta dilindungi.
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="#" className="text-white/70 hover:text-village-gold transition-colors">
+              <a
+                href="#"
+                className="text-white/70 hover:text-village-gold transition-colors"
+              >
                 Kebijakan Privasi
               </a>
-              <a href="#" className="text-white/70 hover:text-village-gold transition-colors">
+              <a
+                href="#"
+                className="text-white/70 hover:text-village-gold transition-colors"
+              >
                 Syarat & Ketentuan
               </a>
-              <a href="#" className="text-white/70 hover:text-village-gold transition-colors">
+              <a
+                href="#"
+                className="text-white/70 hover:text-village-gold transition-colors"
+              >
                 Sitemap
               </a>
             </div>

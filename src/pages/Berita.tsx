@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
@@ -14,7 +15,7 @@ const Berita = () => {
     "Pengumuman"
   ];
 
-  const news = [
+  const allNews = [
     {
       id: 1,
       title: "Belum Ada Berita Terbaru",
@@ -23,13 +24,38 @@ const Berita = () => {
       date: "2025-01-01",
       author: "Admin Desa",
       image: "/placeholder.svg"
+    },
+    {
+      id: 2,
+      title: "Kegiatan Posyandu di Dusun I",
+      excerpt: "Warga Dusun I melaksanakan kegiatan Posyandu rutin sebagai bagian dari program kesehatan desa.",
+      category: "Kegiatan",
+      date: "2025-07-20",
+      author: "Admin Desa",
+      image: "/placeholder.svg"
+    },
+    {
+      id: 3,
+      title: "Pembangunan Jalan Baru Dimulai",
+      excerpt: "Proyek pembangunan jalan utama menuju Dusun II dimulai minggu ini dan ditargetkan selesai dalam 3 bulan.",
+      category: "Pembangunan",
+      date: "2025-07-10",
+      author: "Admin Desa",
+      image: "/placeholder.svg"
     }
   ];
+
+  const [selectedCategory, setSelectedCategory] = useState("Semua Berita");
+
+  const filteredNews =
+    selectedCategory === "Semua Berita"
+      ? allNews
+      : allNews.filter((item) => item.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-16 bg-gradient-subtle">
@@ -49,63 +75,71 @@ const Berita = () => {
         {/* News Content */}
         <section className="py-16">
           <div className="container mx-auto px-4">
+            {/* Kategori Filter */}
             <div className="flex flex-wrap gap-4 justify-center mb-12">
               {newsCategories.map((category) => (
                 <Button
                   key={category}
-                  variant={category === "Semua Berita" ? "village" : "outline"}
+                  variant={selectedCategory === category ? "village" : "outline"}
                   className="rounded-full"
+                  onClick={() => setSelectedCategory(category)}
                 >
                   {category}
                 </Button>
               ))}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {news.map((article) => (
-                <Card key={article.id} className="village-card overflow-hidden hover:scale-105 transition-transform duration-300">
-                  <div className="aspect-video bg-gradient-subtle flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <div className="text-4xl mb-2">📰</div>
-                      <p>Gambar Berita</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Badge variant="secondary">{article.category}</Badge>
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
-                      {article.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4 line-clamp-3">
-                      {article.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
-                        <span>{new Date(article.date).toLocaleDateString('id-ID')}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <User className="h-4 w-4" />
-                        <span>{article.author}</span>
+            {/* News Cards */}
+            {filteredNews.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredNews.map((article) => (
+                  <Card
+                    key={article.id}
+                    className="village-card overflow-hidden hover:scale-105 transition-transform duration-300"
+                  >
+                    <div className="aspect-video bg-gradient-subtle flex items-center justify-center">
+                      <div className="text-center text-muted-foreground">
+                        <div className="text-4xl mb-2">📰</div>
+                        <p>Gambar Berita</p>
                       </div>
                     </div>
-                    <Button variant="ghost" className="p-0 h-auto text-primary hover:text-primary-dark">
-                      Baca Selengkapnya
-                      <ArrowRight className="h-4 w-4 ml-1" />
-                    </Button>
-                  </div>
-                </Card>
-              ))}
-            </div>
-
-            {news.length === 0 && (
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Badge variant="secondary">{article.category}</Badge>
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
+                        {article.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-4 line-clamp-3">
+                        {article.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="h-4 w-4" />
+                          <span>{new Date(article.date).toLocaleDateString("id-ID")}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <User className="h-4 w-4" />
+                          <span>{article.author}</span>
+                        </div>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        className="p-0 h-auto text-primary hover:text-primary-dark"
+                      >
+                        Baca Selengkapnya
+                        <ArrowRight className="h-4 w-4 ml-1" />
+                      </Button>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            ) : (
               <div className="text-center py-16">
                 <div className="text-6xl mb-4">📰</div>
                 <h3 className="text-2xl font-bold text-foreground mb-4">Belum Ada Berita</h3>
                 <p className="text-muted-foreground max-w-md mx-auto">
-                  Saat ini belum ada berita yang dipublikasikan. 
-                  Silakan cek kembali secara berkala untuk mendapatkan informasi terbaru.
+                  Tidak ada berita di kategori ini. Silakan pilih kategori lain atau cek kembali nanti.
                 </p>
               </div>
             )}

@@ -50,19 +50,19 @@ const Infografis = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="village-card p-8 text-center">
-                <h3 className="text-6xl font-bold text-primary mb-4">0</h3>
+                <h3 className="text-6xl font-bold text-primary mb-4">4</h3>
                 <p className="text-lg text-foreground font-semibold">Dusun</p>
                 <p className="text-muted-foreground">Wilayah Administrasi</p>
               </Card>
 
               <Card className="village-card p-8 text-center">
-                <h3 className="text-6xl font-bold text-primary mb-4">0</h3>
+                <h3 className="text-6xl font-bold text-primary mb-4">0/11</h3>
                 <p className="text-lg text-foreground font-semibold">RT/RW</p>
                 <p className="text-muted-foreground">Rukun Tetangga & Warga</p>
               </Card>
 
               <Card className="village-card p-8 text-center">
-                <h3 className="text-6xl font-bold text-primary mb-4">0</h3>
+                <h3 className="text-6xl font-bold text-primary mb-4">518</h3>
                 <p className="text-lg text-foreground font-semibold">km²</p>
                 <p className="text-muted-foreground">Luas Wilayah</p>
               </Card>

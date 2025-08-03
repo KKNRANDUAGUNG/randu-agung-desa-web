@@ -40,12 +40,12 @@ const Profil = () => {
               </Card>
               <Card className="village-card p-6 text-center">
                 <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-3xl font-bold text-foreground mb-2">0</h3>
+                <h3 className="text-3xl font-bold text-foreground mb-2">4</h3>
                 <p className="text-muted-foreground">Dusun</p>
               </Card>
               <Card className="village-card p-6 text-center">
                 <Calendar className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-3xl font-bold text-foreground mb-2">0</h3>
+                <h3 className="text-3xl font-bold text-foreground mb-2">/11</h3>
                 <p className="text-muted-foreground">RT/RW</p>
               </Card>
             </div>
@@ -56,10 +56,7 @@ const Profil = () => {
               <Card className="village-card p-8">
                 <h2 className="text-2xl font-bold text-foreground mb-6">Sejarah Desa</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Desa Randuagung terletak di Kecamatan Singosari, Kabupaten Malang, Jawa Timur. 
-                  Desa ini memiliki sejarah panjang sebagai bagian dari wilayah Singosari yang kaya akan 
-                  budaya dan tradisi Jawa. Dengan komitmen untuk terus berkembang, Desa Randuagung 
-                  berupaya memberikan pelayanan terbaik kepada seluruh masyarakat.
+                Nama Singosari berasal dari Singhasari (Kerajaan Singhasari), sebuah kerajaan besar pada abad ke 12 yang ibu kotanya berada di wilayah kecamatan ini dengan rajanya yang terkenal bernama Ken Arok dan Kertanegara. Keturunan dari Kertanegara adalah Wijaya yang menjadi pendiri Kerajaan Majapahit. Salah satu peninggalan kerajaan tersebut yang kini menjadi salah satu tempat wisata andalan adalah Candi Singosari dan sepasang patung Dwarapala yang merupakan patung terbesar di Indonesia, menurut penjaga situs sejarah ini, arca Dwarapala merupakan pertanda masuk ke wilayah kotaraja, tetapi hingga saat ini tidak ditemukan secara pasti di manan letak kotaraja Singhasari. Selain itu juga terdapat sebuah candi Buddha atau tepatnya stupa di desa Sumberawan dan diberi nama sesuai nama desa itu yaitu Candi Sumberawan. Candi Sumberawan sering dipakai umat Buddha sebagai pusat perayaan Hari Raya Waisak di Kabupaten Malang.
                 </p>
               </Card>
 
@@ -70,17 +67,16 @@ const Profil = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">Visi</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      "Terwujudnya Desa Randuagung yang maju, mandiri, dan sejahtera 
-                      berdasarkan nilai-nilai gotong royong dan kearifan lokal"
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt amet ullam impedit, iste facilis totam! In, sint. Aspernatur impedit consequuntur dicta, commodi eos repellendus laudantium unde natus corporis sequi sint?
                     </p>
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">Misi</h3>
                     <ul className="text-muted-foreground space-y-1">
-                      <li>• Meningkatkan kualitas pelayanan publik</li>
-                      <li>• Mengembangkan potensi ekonomi desa</li>
-                      <li>• Memelihara budaya dan tradisi lokal</li>
-                      <li>• Membangun infrastruktur yang berkelanjutan</li>
+                      <li> - lorem</li>
+                      <li> - lorem</li>
+                      <li> - lorem</li>
+                      <li> - lorem</li>
                     </ul>
                   </div>
                 </div>

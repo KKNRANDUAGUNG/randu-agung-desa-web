@@ -69,9 +69,26 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          {/* 
-          
-          */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6">Tautan Cepat</h4>
+            <div className="space-y-4">
+              {[
+                "Beranda",
+                "Profil Desa", 
+                "Infografis",
+                "Berita",
+                "Games"
+              ].map((link) => (
+                <a 
+                  key={link}
+                  href="#" 
+                  className="block text-white/70 hover:text-village-gold transition-colors duration-300"
+                >
+                  {link}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 

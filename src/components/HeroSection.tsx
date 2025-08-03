@@ -54,7 +54,7 @@ const HeroSection = () => {
               </div>
               <div className="flex items-center gap-2 text-white/80">
                 <Users className="h-5 w-5" />
-                <span>0 Jiwa</span>
+                <span>13.746 Jiwa</span>
               </div>
               <div className="flex items-center gap-2 text-white/80">
                 <Calendar className="h-5 w-5" />

@@ -30,7 +30,7 @@ const Profil = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               <Card className="village-card p-6 text-center">
                 <Users className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-3xl font-bold text-foreground mb-2">0</h3>
+                <h3 className="text-3xl font-bold text-foreground mb-2">13.746</h3>
                 <p className="text-muted-foreground">Total Penduduk</p>
               </Card>
               <Card className="village-card p-6 text-center">

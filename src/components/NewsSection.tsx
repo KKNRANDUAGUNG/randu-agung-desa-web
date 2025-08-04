@@ -12,19 +12,19 @@ const NewsSection = () => {
     {
       title: "Kegiatan Posyandu Balita di Desa",
       date: "25 Juli 2023",
-      image: "/images/news1.jpg",
+      image: "/public/berita/hero-village.jpg",
       excerpt: "Kegiatan Posyandu rutin digelar untuk memantau kesehatan balita di desa...",
     },
     {
       title: "Pelatihan UMKM Bagi Warga",
       date: "10 Agustus 2023",
-      image: "/images/news2.jpg",
+      image: "/public/berita/hero-village.jpg",
       excerpt: "Pelatihan UMKM bertujuan untuk meningkatkan perekonomian warga...",
     },
     {
       title: "Pembangunan Jalan Baru Selesai",
       date: "1 September 2023",
-      image: "/images/news3.jpg",
+      image: "/public/berita/hero-village.jpg",
       excerpt: "Pembangunan jalan baru sepanjang 2 km telah selesai dikerjakan...",
     },
   ];
@@ -46,15 +46,7 @@ const NewsSection = () => {
                 <p className="text-sm text-gray-500 mb-2">{item.date}</p>
                 <p className="text-gray-700 dark:text-gray-300">{item.excerpt}</p>
               </CardContent>
-              <CardFooter className="p-4">
-                <Button
-                  variant="link"
-                  className="text-primary p-0"
-                  onClick={() => navigate(`/berita/${index}`)}
-                >
-                  Baca Selengkapnya
-                </Button>
-              </CardFooter>
+              
             </Card>
           ))}
         </div>

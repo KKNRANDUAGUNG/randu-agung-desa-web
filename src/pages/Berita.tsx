@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -5,44 +7,49 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, User, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const Berita = () => {
+  // const router = useRouter();
   const newsCategories = [
     "Semua Berita",
     "Pembangunan",
     "Pelayanan",
     "Kegiatan",
-    "Pengumuman"
+    "Pengumuman",
   ];
 
   const allNews = [
     {
       id: 1,
       title: "Belum Ada Berita Terbaru",
-      excerpt: "Saat ini belum ada berita yang dipublikasikan. Silakan cek kembali secara berkala untuk mendapatkan informasi terbaru dari Desa Randuagung.",
+      excerpt:
+        "Saat ini belum ada berita yang dipublikasikan. Silakan cek kembali secara berkala untuk mendapatkan informasi terbaru dari Desa Randuagung.",
       category: "Pengumuman",
       date: "2025-01-01",
       author: "Admin Desa",
-      image: "/placeholder.svg"
+      image: "/public/berita/hero-village.jpg",
     },
     {
       id: 2,
       title: "Kegiatan Posyandu di Dusun I",
-      excerpt: "Warga Dusun I melaksanakan kegiatan Posyandu rutin sebagai bagian dari program kesehatan desa.",
+      excerpt:
+        "Warga Dusun I melaksanakan kegiatan Posyandu rutin sebagai bagian dari program kesehatan desa.",
       category: "Kegiatan",
       date: "2025-07-20",
       author: "Admin Desa",
-      image: "/placeholder.svg"
+      image: "/public/berita/hero-village.jpg",
     },
     {
       id: 3,
       title: "Pembangunan Jalan Baru Dimulai",
-      excerpt: "Proyek pembangunan jalan utama menuju Dusun II dimulai minggu ini dan ditargetkan selesai dalam 3 bulan.",
+      excerpt:
+        "Proyek pembangunan jalan utama menuju Dusun II dimulai minggu ini dan ditargetkan selesai dalam 3 bulan.",
       category: "Pembangunan",
       date: "2025-07-10",
       author: "Admin Desa",
-      image: "/placeholder.svg"
-    }
+      image: "/public/berita/hero-village.jpg",
+    },
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("Semua Berita");
@@ -66,7 +73,8 @@ const Berita = () => {
                 Berita Desa
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Informasi terkini seputar kegiatan, pembangunan, dan pelayanan di Desa Randuagung
+                Informasi terkini seputar kegiatan, pembangunan, dan pelayanan
+                di Desa Randuagung
               </p>
             </div>
           </div>
@@ -80,7 +88,9 @@ const Berita = () => {
               {newsCategories.map((category) => (
                 <Button
                   key={category}
-                  variant={selectedCategory === category ? "village" : "outline"}
+                  variant={
+                    selectedCategory === category ? "village" : "outline"
+                  }
                   className="rounded-full"
                   onClick={() => setSelectedCategory(category)}
                 >
@@ -97,12 +107,11 @@ const Berita = () => {
                     key={article.id}
                     className="village-card overflow-hidden hover:scale-105 transition-transform duration-300"
                   >
-                    <div className="aspect-video bg-gradient-subtle flex items-center justify-center">
-                      <div className="text-center text-muted-foreground">
-                        <div className="text-4xl mb-2">📰</div>
-                        <p>Gambar Berita</p>
-                      </div>
-                    </div>
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="aspect-video object-cover w-full"
+                    />
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-3">
                         <Badge variant="secondary">{article.category}</Badge>
@@ -116,7 +125,9 @@ const Berita = () => {
                       <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
                         <div className="flex items-center gap-1">
                           <Calendar className="h-4 w-4" />
-                          <span>{new Date(article.date).toLocaleDateString("id-ID")}</span>
+                          <span>
+                            {new Date(article.date).toLocaleDateString("id-ID")}
+                          </span>
                         </div>
                         <div className="flex items-center gap-1">
                           <User className="h-4 w-4" />
@@ -124,11 +135,11 @@ const Berita = () => {
                         </div>
                       </div>
                       <Button
-                        variant="ghost"
-                        className="p-0 h-auto text-primary hover:text-primary-dark"
+                        variant="link"
+                        className="text-primary p-0"
+                        onClick={() => router.push(`/berita/${article.id}`)}
                       >
                         Baca Selengkapnya
-                        <ArrowRight className="h-4 w-4 ml-1" />
                       </Button>
                     </div>
                   </Card>
@@ -137,9 +148,12 @@ const Berita = () => {
             ) : (
               <div className="text-center py-16">
                 <div className="text-6xl mb-4">📰</div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">Belum Ada Berita</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-4">
+                  Belum Ada Berita
+                </h3>
                 <p className="text-muted-foreground max-w-md mx-auto">
-                  Tidak ada berita di kategori ini. Silakan pilih kategori lain atau cek kembali nanti.
+                  Tidak ada berita di kategori ini. Silakan pilih kategori lain
+                  atau cek kembali nanti.
                 </p>
               </div>
             )}

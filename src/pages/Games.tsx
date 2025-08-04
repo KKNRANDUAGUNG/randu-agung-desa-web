@@ -33,9 +33,14 @@ const Game = () => {
                 Klik TOMBOL dibawah untuk unduh gamenya!
               </h2>
               <div className="flex flex-wrap gap-4 justify-center">
-                <Button variant="village" size="lg">
-                  Unduh
-                </Button>
+                <a href="https://drive.google.com/drive/folders/1BSK60pc1jhePum7E0-SjBnvgk5nkFPTK?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <Button variant="village" size="lg">
+                    Unduh
+                    {/* <ArrowRight className="h-5 w-5 ml-2" /> */}
+                  </Button>
+                </a>
               </div>
             </Card>
           </div>

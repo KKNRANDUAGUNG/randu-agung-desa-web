@@ -1,64 +1,158 @@
-"use client";
-
-import { ArrowRight } from "lucide-react";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { useState } from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { Calendar, User, ArrowRight } from "lucide-react";
 
-const NewsSection = () => {
-  const navigate = useNavigate();
-
-  const news = [
-    {
-      title: "Kegiatan Posyandu Balita di Desa",
-      date: "25 Juli 2023",
-      image: "/public/berita/hero-village.jpg",
-      excerpt: "Kegiatan Posyandu rutin digelar untuk memantau kesehatan balita di desa...",
-    },
-    {
-      title: "Pelatihan UMKM Bagi Warga",
-      date: "10 Agustus 2023",
-      image: "/public/berita/hero-village.jpg",
-      excerpt: "Pelatihan UMKM bertujuan untuk meningkatkan perekonomian warga...",
-    },
-    {
-      title: "Pembangunan Jalan Baru Selesai",
-      date: "1 September 2023",
-      image: "/public/berita/hero-village.jpg",
-      excerpt: "Pembangunan jalan baru sepanjang 2 km telah selesai dikerjakan...",
-    },
+const Berita = () => {
+  const newsCategories = [
+    "Semua Berita",
+    "Pembangunan",
+    "Pelayanan",
+    "Kegiatan",
+    "Pengumuman"
   ];
 
+  const allNews = [
+    {
+      id: 1,
+      title: "Belum Ada Berita Terbaru",
+      excerpt: "Saat ini belum ada berita yang dipublikasikan. Silakan cek kembali secara berkala untuk mendapatkan informasi terbaru dari Desa Randuagung.",
+      category: "Pengumuman",
+      date: "2025-01-01",
+      author: "Admin Desa",
+      image: "/gambar-beranda/hero-village.jpg"
+    },
+    {
+      id: 2,
+      title: "Kegiatan Posyandu di Dusun I",
+      excerpt: "Warga Dusun I melaksanakan kegiatan Posyandu rutin sebagai bagian dari program kesehatan desa.",
+      category: "Kegiatan",
+      date: "2025-07-20",
+      author: "Admin Desa",
+      image: "/gambar-beranda/hero-village.jpg"
+    },
+    {
+      id: 3,
+      title: "Pembangunan Jalan Baru Dimulai",
+      excerpt: "Proyek pembangunan jalan utama menuju Dusun II dimulai minggu ini dan ditargetkan selesai dalam 3 bulan.",
+      category: "Pembangunan",
+      date: "2025-07-10",
+      author: "Admin Desa",
+      image: "/gambar-beranda/hero-village.jpg"
+    }
+  ];
+
+  const [selectedCategory, setSelectedCategory] = useState("Semua Berita");
+
+  const filteredNews =
+    selectedCategory === "Semua Berita"
+      ? allNews
+      : allNews.filter((item) => item.category === selectedCategory);
+
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
-      <div className="container px-4 mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Berita Terbaru</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {news.map((item, index) => (
-            <Card key={index}>
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-48 object-cover rounded-t-lg"
-              />
-              <CardContent className="p-4">
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 mb-2">{item.date}</p>
-                <p className="text-gray-700 dark:text-gray-300">{item.excerpt}</p>
-              </CardContent>
-              
-            </Card>
-          ))}
-        </div>
-        <div className="text-center mt-8">
-          <Button variant="village" size="lg" onClick={() => navigate("/berita")}>
-            Lihat Semua Berita
-            <ArrowRight className="h-5 w-5 ml-2" />
-          </Button>
-        </div>
-      </div>
-    </section>
+    <div className="min-h-screen bg-background">
+      <Header />
+
+      <main className="pt-20">
+        {/* Hero Section */}
+        <section className="py-16 bg-gradient-subtle">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <div className="ornament-divider mb-8"></div>
+              <h1 className="text-4xl font-bold text-foreground mb-4">
+                Berita Desa
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Informasi terkini seputar kegiatan, pembangunan, dan pelayanan di Desa Randuagung
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* News Content */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            {/* Kategori Filter */}
+            <div className="flex flex-wrap gap-4 justify-center mb-12">
+              {newsCategories.map((category) => (
+                <Button
+                  key={category}
+                  variant={selectedCategory === category ? "village" : "outline"}
+                  className="rounded-full"
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
+
+            {/* News Cards */}
+            {filteredNews.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredNews.map((article) => (
+                  <Card
+                    key={article.id}
+                    className="village-card overflow-hidden hover:scale-105 transition-transform duration-300"
+                  >
+                    {/* Gambar Berita */}
+                    <div className="aspect-video overflow-hidden">
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Badge variant="secondary">{article.category}</Badge>
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
+                        {article.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-4 line-clamp-3">
+                        {article.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="h-4 w-4" />
+                          <span>{new Date(article.date).toLocaleDateString("id-ID")}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <User className="h-4 w-4" />
+                          <span>{article.author}</span>
+                        </div>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        className="p-0 h-auto text-primary hover:text-primary-dark"
+                      >
+                        Baca Selengkapnya
+                        <ArrowRight className="h-4 w-4 ml-1" />
+                      </Button>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-16">
+                <div className="text-6xl mb-4">📰</div>
+                <h3 className="text-2xl font-bold text-foreground mb-4">Belum Ada Berita</h3>
+                <p className="text-muted-foreground max-w-md mx-auto">
+                  Tidak ada berita di kategori ini. Silakan pilih kategori lain atau cek kembali nanti.
+                </p>
+              </div>
+            )}
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
   );
 };
 
-export default NewsSection;
+export default Berita;
